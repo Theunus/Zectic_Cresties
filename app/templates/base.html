@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zectic Cresties</title>
+    
+    <!-- Link to Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Link to Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <!-- Sidebar Navigation -->
+    <nav>
+        <!-- Logo -->
+        <div class="logo">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Zectic Cresties Logo">
+        </div>
+        <ul>
+            <li><a href="{{ url_for('home') }}" style="font-size: 0.9em;"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="{{ url_for('about') }}" style="font-size: 0.9em;"><i class="fas fa-info-circle"></i> About Us</a></li>
+            <li><a href="{{ url_for('contact_us') }}" style="font-size: 0.9em;"><i class="fas fa-envelope"></i> Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}
+        <!-- Content will be injected here from other templates -->
+        {% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Zectic Cresties. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

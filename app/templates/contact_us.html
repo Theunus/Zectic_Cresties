@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="contact-card">
+        <h2>Contact Us</h2>
+
+        <!-- Contact Form -->
+        <form method="POST" action="{{ url_for('contact_us') }}">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                {{ form.name.label }}
+                {{ form.name(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.email.label }}
+                {{ form.email(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.message.label }}
+                {{ form.message(class="form-control", rows="4") }}
+            </div>
+            {{ form.submit(class="btn btn-primary") }}
+        </form>
+    </div>
+
+    <!-- Divider -->
+    <div class="divider"></div>
+
+    <!-- Additional Contact Info Section -->
+    <div class="contact-info">
+        <h3>Get in Touch</h3>
+        <p><strong>Phone Number:</strong> <a href="tel:+1234567890">+1 234 567 890</a></p>
+        <p><strong>Follow Us:</strong>
+            <a href="https://www.instagram.com/zectic_cresties?igsh=MTJpdG12ZjZjNWJ2ZA==" target="_blank">Instagram</a> | 
+            <a href="https://www.facebook.com/yourprofile" target="_blank">Facebook</a>
+        </p>
+    </div>
+
+{% endblock %}

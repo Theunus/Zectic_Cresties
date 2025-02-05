@@ -1,0 +1,237 @@
+/* General Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* Sidebar Navigation */
+nav {
+    background-color: #f4f4f4;
+    width: 180px;
+    position: fixed;
+    height: 100vh;
+    padding-top: 40px;
+    box-sizing: border-box;
+    text-align: center; /* Center align the content */
+}
+
+nav .logo {
+    margin-bottom: 20px; /* Add some space below the logo */
+}
+
+nav .logo img {
+    max-width: 100%;
+    height: auto;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    margin: 15px 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 0.9em; /* Adjusted font size */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 20px;
+    transition: color 0.3s ease;
+    border-bottom: none; /* Removed bottom border */
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+/* Icon Styling in Sidebar Links */
+nav ul li a i {
+    margin-right: 10px;
+    color: #B8860B;
+    font-size: 20px;
+}
+
+nav ul li a:hover {
+    color: #B8860B;
+    border-color: #B8860B;
+}
+
+nav ul li a:hover i {
+    color: #8B6E25;
+}
+
+/* Main Content */
+main {
+    margin-left: 200px;
+    padding: 40px 20px;
+    background-color: white;
+    width: calc(100% - 200px);
+    min-height: calc(100vh - 80px);
+    box-sizing: border-box;
+    flex-grow: 1;
+}
+
+/* Header */
+header {
+    background-color: transparent;
+    color: #B8860B;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+/* Footer */
+footer {
+    background-color: #f4f4f4;
+    color: #333;
+    text-align: center;
+    padding: 8px 0;
+    font-size: 14px;
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* Headers (h1, h2) */
+h1, h2 {
+    color: #B8860B;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+/* Card Styling */
+.card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    width: 95%;
+    margin-left: 0%;
+    margin-right: 2.5%;
+}
+
+.card h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* About Us Header */
+.about-us-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Divider Style */
+.divider {
+    width: 80%;
+    height: 2px;
+    background-color: #B8860B;
+    margin: 30px auto;
+}
+
+/* Contact Us Form Styling */
+.contact-card {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 40px auto;
+}
+
+.contact-card h2 {
+    text-align: center;
+    color: #B8860B;
+}
+
+.contact-card .form-group {
+    margin-bottom: 15px;
+}
+
+.contact-card label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.contact-card input, .contact-card textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact-card button {
+    background-color: #B8860B;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.contact-card button:hover {
+    background-color: #8B6E25;
+}
+
+/* Contact Info - Adjusting the links inline */
+.contact-info p {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.contact-info a {
+    color: #B8860B;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* Buttons */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #6f5f09;
+}
