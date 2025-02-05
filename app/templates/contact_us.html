@@ -4,22 +4,61 @@
     <div class="contact-card">
         <h2>Contact Us</h2>
 
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ 'success' if category == 'success' else 'danger' }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+                <script>
+                    setTimeout(function() {
+                        document.querySelector('.flash-messages').style.display = 'none';
+                    }, 5000); // 5000 milliseconds = 5 seconds
+                </script>
+            {% endif %}
+        {% endwith %}
+
         <!-- Contact Form -->
         <form method="POST" action="{{ url_for('contact_us') }}">
             {{ form.hidden_tag() }}
             <div class="form-group">
                 {{ form.name.label }}
                 {{ form.name(class="form-control") }}
+                {% if form.name.errors %}
+                    <div class="alert alert-danger">
+                        {% for error in form.name.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% endif %}
             </div>
             <div class="form-group">
                 {{ form.email.label }}
                 {{ form.email(class="form-control") }}
+                {% if form.email.errors %}
+                    <div class="alert alert-danger">
+                        {% for error in form.email.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% endif %}
             </div>
             <div class="form-group">
                 {{ form.message.label }}
                 {{ form.message(class="form-control", rows="4") }}
+                {% if form.message.errors %}
+                    <div class="alert alert-danger">
+                        {% for error in form.message.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% endif %}
             </div>
-            {{ form.submit(class="btn btn-primary") }}
+            {{ form.submit(class="btn btn-success") }}
         </form>
     </div>
 
@@ -29,7 +68,7 @@
     <!-- Additional Contact Info Section -->
     <div class="contact-info">
         <h3>Get in Touch</h3>
-        <p><strong>Phone Number:</strong> <a href="tel:+1234567890">+1 234 567 890</a></p>
+        <p><strong>Phone Number:</strong> <a href="tel:+27636807259">+27 63 680 7259 | +27 77 246 2151</a></p>
         <p><strong>Follow Us:</strong>
             <a href="https://www.instagram.com/zectic_cresties?igsh=MTJpdG12ZjZjNWJ2ZA==" target="_blank">Instagram</a> | 
             <a href="https://www.facebook.com/yourprofile" target="_blank">Facebook</a>

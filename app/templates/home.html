@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="jumbotron text-center">
+            <h1 class="display-4">Welcome to Zectic Cresties!</h1>
+            <p class="lead">We are passionate about geckos and specialize in all things related to these amazing creatures.</p>
+            <hr class="my-4">
+            <p>Explore our collection of exotic geckos and learn more about how to care for them.</p>
+            <a class="btn btn-primary btn-lg" href="{{ url_for('about') }}" role="button">Learn more about us</a>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <img src="{{ url_for('static', filename='images/gecko1.jpg') }}" class="card-img-top" alt="Gecko 1">
+                    <div class="card-body">
+                        <p class="card-text">Exotic Gecko 1</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <img src="{{ url_for('static', filename='images/gecko2.jpg') }}" class="card-img-top" alt="Gecko 2">
+                    <div class="card-body">
+                        <p class="card-text">Exotic Gecko 2</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <img src="{{ url_for('static', filename='images/gecko3.jpg') }}" class="card-img-top" alt="Gecko 3">
+                    <div class="card-body">
+                        <p class="card-text">Exotic Gecko 3</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

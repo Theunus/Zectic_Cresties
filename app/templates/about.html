@@ -9,24 +9,4 @@
         <p>We are Gecko Business, passionate about geckos! We specialize in all things related to geckos, from selling exotic breeds to providing care and advice for gecko enthusiasts.</p>
         <p>Whether you are looking for a pet or tips on how to care for your current gecko, we've got you covered!</p>
     </div>
-
-    <div class="card">
-        <h2>Submit an Inquiry</h2>
-        <form method="POST" action="{{ url_for('about') }}">
-            {{ form.hidden_tag() }}
-            <div class="form-group">
-                {{ form.name.label }}
-                {{ form.name(class="form-control") }}
-            </div>
-            <div class="form-group">
-                {{ form.email.label }}
-                {{ form.email(class="form-control") }}
-            </div>
-            <div class="form-group">
-                {{ form.inquiry.label }}
-                {{ form.inquiry(class="form-control", rows="4") }}
-            </div>
-            {{ form.submit(class="btn btn-primary") }}
-        </form>
-    </div>
 {% endblock %}
