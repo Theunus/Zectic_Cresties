@@ -2,11 +2,83 @@
 
 {% block content %}
     <div class="about-us-header">
-        <h2>About Us</h2>
-        <div class="divider"></div>
+        <h2 style="color: #B8860B;">About Us</h2>
+        <div class="divider" style="background-color: #B8860B;"></div>
     </div>
-    <div class="card">
-        <p>We are Gecko Business, passionate about geckos! We specialize in all things related to geckos, from selling exotic breeds to providing care and advice for gecko enthusiasts.</p>
-        <p>Whether you are looking for a pet or tips on how to care for your current gecko, we've got you covered!</p>
+
+    <div class="container-fluid p-0">
+        <!-- Main Content Card with contact-card styling -->
+        <div class="card mb-4" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+            <div class="card-body">
+                <!-- Main About Us Content -->
+                <div class="row mb-4">
+                    <div class="col-md-8">
+                        <h3 style="color: #B8860B;" class="mb-4">Welcome to Zectic Cresties</h3>
+                        <p class="lead">A family-based crested gecko breeding facility dedicated to producing healthy, high-quality geckos with stunning genetics and vibrant colors.</p>
+                        
+                        <p>What started as a passion for these fascinating reptiles quickly grew into a mission to provide exceptional care, ethical breeding practices, and education for fellow gecko enthusiasts.</p>
+                        
+                        <div class="my-4">
+                            <i class="fas fa-heart" style="color: #FFB6C1; margin-right: 8px;"></i>
+                            <em class="font-weight-bold">At Zectic Cresties, we believe that every gecko deserves a loving home</em>
+                        </div>
+                        
+                        <p>We take pride in raising well-socialized, healthy cresties with strong lineage and unique traits. Our family is committed to maintaining a clean, enriching environment for our geckos, ensuring they thrive from hatchling to adulthood.</p>
+                        
+                        <p>Whether you're a seasoned reptile keeper or new to the world of crested geckos, we're here to help you find the perfect addition to your collection. Explore our available geckos, learn more about care and husbandry, and join us in celebrating these incredible creatures!</p>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="text-center">
+                            <img src="{{ url_for('static', filename='images/gecko1.jpg') }}" class="img-fluid rounded-circle mb-3" alt="Featured Gecko" style="max-height: 250px;">
+                            <div class="badge p-2 text-uppercase" style="background-color: #B8860B; color: white;">Quality Breeding</div>
+                        </div>
+                        
+                        <div class="mt-4 p-3 rounded" style="background-color: #f8f9fa;">
+                            <h5><i class="fas fa-star" style="color: #B8860B;"></i> Our Commitment</h5>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check-circle mr-2" style="color: #4CAF50;"></i> Healthy, vibrant geckos</li>
+                                <li><i class="fas fa-check-circle mr-2" style="color: #4CAF50;"></i> Ethical breeding practices</li>
+                                <li><i class="fas fa-check-circle mr-2" style="color: #4CAF50;"></i> Expert care guidance</li>
+                                <li><i class="fas fa-check-circle mr-2" style="color: #4CAF50;"></i> Ongoing support</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Three Feature Cards with contact-card styling -->
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card h-100" style="border-color: #B8860B; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                            <div class="card-header text-white" style="background-color: #B8860B; border-top-left-radius: 10px; border-top-right-radius: 10px;">
+                                <h4 class="mb-0"><i class="fas fa-dna mr-2"></i> Genetics</h4>
+                            </div>
+                            <div class="card-body">
+                                <p>We focus on breeding geckos with stunning genetics and vibrant colors, carefully selecting breeding pairs to produce exceptional offspring.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100" style="border-color: #4CAF50; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                            <div class="card-header text-white" style="background-color: #4CAF50; border-top-left-radius: 10px; border-top-right-radius: 10px;">
+                                <h4 class="mb-0"><i class="fas fa-home mr-2"></i> Habitat</h4>
+                            </div>
+                            <div class="card-body">
+                                <p>All our geckos are raised in clean, enriching environments that promote natural behaviors and ensure they develop into healthy, well-adjusted pets.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100" style="border-color: #FFB6C1; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                            <div class="card-header text-white" style="background-color: #FFB6C1; border-top-left-radius: 10px; border-top-right-radius: 10px;">
+                                <h4 class="mb-0"><i class="fas fa-book-open mr-2"></i> Education</h4>
+                            </div>
+                            <div class="card-body">
+                                <p>We're passionate about educating gecko enthusiasts on proper care, handling, and husbandry practices to ensure these amazing reptiles thrive in captivity.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}
