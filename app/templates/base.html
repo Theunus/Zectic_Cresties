@@ -15,12 +15,16 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+    <!-- Menu Button -->
+    <div id="menu-toggle">
+        <i class="fas fa-bars"></i>
+    </div>
 
-    <!-- Sidebar Navigation -->
-    <nav>
+    <!-- Sidebar Navigation with ID for JavaScript targeting -->
+    <nav id="sidebar">
         <!-- Logo -->
         <div class="logo">
-            <img src="{{ url_for('static', filename='logo.png') }}" alt="Zectic Cresties Logo">
+            <img src="{{ url_for('static', filename='assets/media/Zectic_Cresties_Logo.png') }}" alt="Zectic Cresties Logo">
         </div>
         <ul>
             <li><a href="{{ url_for('home') }}" style="font-size: 0.9em;"><i class="fas fa-home"></i> Home</a></li>
@@ -29,8 +33,8 @@
         </ul>
     </nav>
 
-    <!-- Main Content -->
-    <main>
+    <!-- Main Content with ID for JavaScript targeting -->
+    <main id="main-content">
         {% block content %}
         <!-- Content will be injected here from other templates -->
         {% endblock %}
@@ -45,5 +49,8 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <!-- Link to Custom JavaScript -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>

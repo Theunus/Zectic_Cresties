@@ -7,34 +7,307 @@
             <p class="lead">We are passionate about geckos and specialize in all things related to these amazing creatures.</p>
             <hr class="my-4">
             <p>Explore our collection of exotic geckos and learn more about how to care for them.</p>
-            <a class="btn btn-primary btn-lg" href="{{ url_for('about') }}" role="button">Learn more about us</a>
+            <div class="d-flex justify-content-center mt-4">
+                <a class="btn btn-primary btn-lg mr-3" href="{{ url_for('about') }}" role="button">
+                    <i class="fas fa-info-circle mr-2"></i>Learn more about us
+                </a>
+                <a class="btn btn-success btn-lg" href="{{ url_for('static', filename='assets/media/catalog.zip') }}" download role="button">
+                    <i class="fas fa-download mr-2"></i>Download our full catalog
+                </a>
+            </div>
         </div>
 
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card mb-4 shadow-sm">
-                    <img src="{{ url_for('static', filename='images/gecko1.jpg') }}" class="card-img-top" alt="Gecko 1">
-                    <div class="card-body">
-                        <p class="card-text">Exotic Gecko 1</p>
+        <!-- Featured Geckos Section with consistent alignment -->
+        <div class="content-wrapper">
+            <h3 class="text-center mb-4">Featured Geckos</h3>
+            <div class="row gecko-gallery">
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm h-100">
+                        <div class="card-img-container">
+                            <img src="{{ url_for('static', filename='assets/media/gecko1.jpg') }}" class="card-img-top gecko-image" alt="Gecko 1">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Crested Gecko</h5>
+                            <p class="text-muted">Harlequin Morph</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm h-100">
+                        <div class="card-img-container">
+                            <img src="{{ url_for('static', filename='assets/media/gecko2.jpg') }}" class="card-img-top gecko-image" alt="Gecko 2">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Crested Gecko</h5>
+                            <p class="text-muted">Flame Morph</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm h-100">
+                        <div class="card-img-container">
+                            <img src="{{ url_for('static', filename='assets/media/gecko3.jpg') }}" class="card-img-top gecko-image" alt="Gecko 3">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Crested Gecko</h5>
+                            <p class="text-muted">Dalmatian Morph</p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card mb-4 shadow-sm">
-                    <img src="{{ url_for('static', filename='images/gecko2.jpg') }}" class="card-img-top" alt="Gecko 2">
-                    <div class="card-body">
-                        <p class="card-text">Exotic Gecko 2</p>
+            
+            <!-- Catalog Section -->
+            <div class="catalog-section text-center my-5 py-4">
+                <div class="catalog-card p-4">
+                    <h2 class="mb-4">Gecko Image Collection</h2>
+                    <p class="lead mb-4">Download our complete collection of crested gecko images to see our beautiful geckos in detail.</p>
+                    <div class="catalog-image mb-4">
+                        <div class="catalog-preview d-flex justify-content-center">
+                            <img src="{{ url_for('static', filename='assets/media/gecko1.jpg') }}" alt="Gecko 1" class="catalog-thumb mx-2">
+                            <img src="{{ url_for('static', filename='assets/media/gecko2.jpg') }}" alt="Gecko 2" class="catalog-thumb mx-2">
+                            <img src="{{ url_for('static', filename='assets/media/gecko3.jpg') }}" alt="Gecko 3" class="catalog-thumb mx-2">
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card mb-4 shadow-sm">
-                    <img src="{{ url_for('static', filename='images/gecko3.jpg') }}" class="card-img-top" alt="Gecko 3">
-                    <div class="card-body">
-                        <p class="card-text">Exotic Gecko 3</p>
-                    </div>
+                    <a href="{{ url_for('static', filename='assets/media/catalog.zip') }}" download class="btn btn-lg catalog-download-btn">
+                        <i class="fas fa-images mr-2"></i>Download Image Collection
+                    </a>
+                    <p class="small text-muted mt-3">ZIP archive • Contains high-resolution photos</p>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close-btn">&times;</span>
+        <div class="modal-content">
+            <img id="expandedImage">
+        </div>
+    </div>
+
+    <!-- Add this script to the end of your home.html file -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all gecko images
+            var images = document.querySelectorAll('.gecko-image');
+            var modal = document.getElementById('imageModal');
+            var expandedImg = document.getElementById('expandedImage');
+            var closeBtn = document.querySelector('.close-btn');
+            
+            // Add click event to each image
+            images.forEach(function(img) {
+                img.style.cursor = 'pointer';
+                img.addEventListener('click', function() {
+                    expandedImg.src = this.src;
+                    modal.style.display = 'flex';
+                });
+            });
+            
+            // Close modal when clicking the X button
+            closeBtn.addEventListener('click', function() {
+                modal.style.display = 'none';
+            });
+            
+            // Close modal when clicking outside the image
+            window.addEventListener('click', function(event) {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+            
+            // Close modal with Escape key
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape' && modal.style.display === 'flex') {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
+    <!-- CSS to fix alignment issues -->
+    <style>
+        /* Container for consistent spacing */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Content wrapper to maintain positioning */
+        .content-wrapper {
+            width: 100%;
+            margin: 0 auto;
+            transition: all 0.3s ease;
+        }
+        
+        /* Keep this centered regardless of sidebar state */
+        #main-content .content-wrapper {
+            margin: 0 auto;
+            max-width: 1100px;
+        }
+        
+        #main-content.active .content-wrapper {
+            margin: 0 auto;
+            max-width: 1100px;
+        }
+        
+        /* Card grid styling */
+        .gecko-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            margin-right: -15px;
+            margin-left: -15px;
+        }
+        
+        .gecko-gallery .col-md-4 {
+            padding: 0 15px;
+            margin-bottom: 30px;
+        }
+        
+        /* Card styling with consistent dimensions */
+        .gecko-gallery .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            border-radius: 8px;
+        }
+        
+        .gecko-gallery .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Fixed height image container */
+        .card-img-container {
+            height: 220px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f8f9fa;
+        }
+        
+        .gecko-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease, opacity 0.3s ease;
+        }
+        
+        .gecko-image:hover {
+            opacity: 0.9;
+            transform: scale(1.05);
+        }
+        
+        /* Modal styling */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            position: relative;
+            max-width: 80%;
+            max-height: 80vh;
+        }
+        
+        .modal-content img {
+            width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 5px;
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 1001;
+            transition: color 0.3s ease;
+        }
+        
+        .close-btn:hover {
+            color: #B8860B;
+        }
+        
+        /* Catalog Section Styling */
+        .catalog-section {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            margin-top: 60px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .catalog-card {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .catalog-download-btn {
+            background-color: #B8860B;
+            color: white;
+            padding: 12px 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border-radius: 30px;
+        }
+        
+        .catalog-download-btn:hover {
+            background-color: #8B6E25;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(184, 134, 11, 0.3);
+            color: white;
+        }
+        
+        .catalog-preview {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.1);
+        }
+        
+        .catalog-thumb {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+        }
+        
+        .catalog-thumb:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .card-img-container {
+                height: 180px;
+            }
+            
+            .catalog-thumb {
+                width: 90px;
+                height: 90px;
+            }
+        }
+    </style>
 {% endblock %}

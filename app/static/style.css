@@ -22,13 +22,27 @@ nav {
     text-align: center; /* Center align the content */
 }
 
+/* Logo styling in sidebar */
 nav .logo {
-    margin-bottom: 20px; /* Add some space below the logo */
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
 }
 
 nav .logo img {
-    max-width: 100%;
-    height: auto;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #B8860B;
+    padding: 3px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+nav .logo img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
 
 nav ul {
@@ -125,9 +139,29 @@ h2 {
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 30px;
-    width: 95%;
-    margin-left: 0%;
-    margin-right: 2.5%;
+    width: 90%;  /* Reduced width to accommodate margin */
+    margin-left: 5%;  /* Added left margin to move card right */
+    margin-right: 5%;  /* Balanced margin on both sides */
+}
+
+/* Ensure proper alignment for about page elements */
+#main-content .about-us-header {
+    text-align: center;
+    padding-left: 20px;
+    margin-left: 5%; /* Match card's left margin */
+    width: 90%; /* Match card's width */
+}
+
+/* Adjust when sidebar is active */
+#main-content.active .card {
+    width: 92%;  /* Slightly wider when sidebar is visible */
+    margin-left: 4%;  /* Slightly less margin when sidebar is visible */
+    margin-right: 4%;
+}
+
+#main-content.active .about-us-header {
+    margin-left: 4%; /* Match card's left margin when sidebar is visible */
+    width: 92%; /* Match card's width when sidebar is visible */
 }
 
 .card h2 {
@@ -142,11 +176,12 @@ h2 {
 
 /* About Us Header */
 .about-us-header {
-    text-align: center;
+    text-align: left;
     margin-bottom: 20px;
     width: 95%;
     margin-left: 0%;
     margin-right: 2.5%;
+    padding-left: 20px;  /* Add padding to match card body padding */
 }
 
 /* Divider Style */
@@ -237,4 +272,135 @@ button {
 
 button:hover {
     background-color: #6f5f09;
+}
+
+/* Menu Toggle Button */
+#menu-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #B8860B;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+#menu-toggle:hover {
+    background-color: #8B6E25;
+    transform: scale(1.05);
+}
+
+/* Sidebar Navigation - start with it off-screen */
+#sidebar {
+    background-color: #f4f4f4;
+    width: 180px;
+    position: fixed;
+    height: 100vh;
+    padding-top: 60px;
+    box-sizing: border-box;
+    text-align: center;
+    left: -180px; /* Start off-screen */
+    transition: left 0.3s ease;
+    z-index: 900;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Update main content positioning for better alignment when menu is collapsed */
+#main-content {
+    margin-left: 0;  /* Start with no margin when menu is collapsed */
+    padding: 40px 40px;  /* Increase left padding for better spacing */
+    transition: margin-left 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* When sidebar is active */
+#sidebar.active {
+    left: 0;
+}
+
+/* When sidebar is active/expanded */
+#main-content.active {
+    margin-left: 180px;
+    width: calc(100% - 180px);
+}
+
+/* For smaller screens, make the content full width even when sidebar is open */
+@media (max-width: 768px) {
+    #main-content.active {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+/* Adjust container alignment */
+.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Ensure proper alignment for about page elements */
+#main-content .about-us-header {
+    text-align: left;
+    padding-left: 20px;
+}
+
+#main-content .card {
+    margin-left: 0;
+}
+
+/* About page specific styles for consistent positioning */
+.about-section {
+    width: 100%;
+    padding: 0 20px;
+    transition: all 0.3s ease;
+}
+
+.about-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    transition: all 0.3s ease;
+}
+
+.about-us-header {
+    text-align: left;
+    margin-bottom: 20px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Adjust the about section when sidebar is active/inactive */
+#main-content .about-section {
+    max-width: 100%;
+}
+
+#main-content.active .about-section {
+    max-width: 100%;
+}
+
+/* Ensure cards don't stretch too wide on large screens */
+@media (min-width: 1400px) {
+    .about-section .container {
+        max-width: 1300px;
+    }
+}
+
+/* Ensure proper spacing on smaller screens */
+@media (max-width: 768px) {
+    .about-section {
+        padding: 0 10px;
+    }
 }
