@@ -72,7 +72,6 @@ zectic_cresties/
 ├── .gitignore
 ├── README.md
 ├── requirements.txt
-└── run.py                  # Application entry point
 ```
 
 ## Customization
