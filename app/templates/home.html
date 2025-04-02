@@ -11,8 +11,8 @@
                 <a class="btn btn-primary btn-lg mr-3" href="{{ url_for('about') }}" role="button">
                     <i class="fas fa-info-circle mr-2"></i>Learn more about us
                 </a>
-                <a class="btn btn-success btn-lg" href="{{ url_for('static', filename='assets/media/catalog.zip') }}" download role="button">
-                    <i class="fas fa-download mr-2"></i>Download our full catalog
+                <a class="btn btn-success btn-lg" href="{{ url_for('static', filename='assets/media/catalog.pdf') }}" download role="button">
+                    <i class="fas fa-file-pdf mr-2"></i>Download our catalog
                 </a>
             </div>
         </div>
@@ -60,7 +60,7 @@
             <div class="catalog-section text-center my-5 py-4">
                 <div class="catalog-card p-4">
                     <h2 class="mb-4">Gecko Image Collection</h2>
-                    <p class="lead mb-4">Download our complete collection of crested gecko images to see our beautiful geckos in detail.</p>
+                    <p class="lead mb-4">Download our beautiful gecko catalog to see our collection in detail - perfect for mobile viewing!</p>
                     <div class="catalog-image mb-4">
                         <div class="catalog-preview d-flex justify-content-center">
                             <img src="{{ url_for('static', filename='assets/media/gecko1.jpg') }}" alt="Gecko 1" class="catalog-thumb mx-2">
@@ -68,10 +68,10 @@
                             <img src="{{ url_for('static', filename='assets/media/gecko3.jpg') }}" alt="Gecko 3" class="catalog-thumb mx-2">
                         </div>
                     </div>
-                    <a href="{{ url_for('static', filename='assets/media/catalog.zip') }}" download class="btn btn-lg catalog-download-btn">
-                        <i class="fas fa-images mr-2"></i>Download Image Collection
+                    <a href="{{ url_for('static', filename='assets/media/catalog.pdf') }}" download class="btn btn-lg catalog-download-btn">
+                        <i class="fas fa-file-pdf mr-2"></i>Download Gecko Catalog PDF
                     </a>
-                    <p class="small text-muted mt-3">ZIP archive • Contains high-resolution photos</p>
+                    <p class="small text-muted mt-3">PDF format • Viewable on all devices • No extraction needed</p>
                 </div>
             </div>
         </div>

@@ -13,6 +13,66 @@
 
     <!-- Link to Custom CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    
+    <!-- Additional inline styles for menu alignment -->
+    <style>
+        /* Left-aligned menu items with consistent spacing */
+        #sidebar {
+            overflow: hidden; /* Prevents child elements from extending outside */
+        }
+        
+        #sidebar ul {
+            padding-left: 0;
+            margin-top: 20px;
+            width: 100%;
+            padding-right: 15px; /* Add padding to prevent glow from hitting edge */
+        }
+        
+        #sidebar ul li {
+            list-style: none;
+            margin-bottom: 15px;
+            width: 100%;
+            text-align: left;
+            overflow: hidden; /* Contains the glow effect */
+            border-radius: 5px; /* Match the link border-radius */
+        }
+        
+        #sidebar ul li a {
+            display: flex;
+            align-items: center;
+            color: #333;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 8px 15px;
+            border-radius: 5px;
+            justify-content: flex-start;
+            width: calc(100% - 5px); /* Slightly smaller to keep glow within container */
+            text-align: left;
+            margin-left: 5px; /* Small margin to prevent sticking to the edge */
+            box-shadow: none; /* No shadow by default */
+        }
+        
+        #sidebar ul li a:hover {
+            background-color: rgba(184, 134, 11, 0.1);
+            color: #B8860B;
+            box-shadow: 0 0 5px rgba(184, 134, 11, 0.3); /* Softer glow that stays contained */
+        }
+        
+        #sidebar ul li a i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+            min-width: 20px;
+        }
+        
+        /* Active menu item */
+        #sidebar ul li a.active {
+            background-color: rgba(184, 134, 11, 0.2);
+            color: #B8860B;
+            font-weight: bold;
+            box-shadow: 0 0 5px rgba(184, 134, 11, 0.3); /* Softer glow that stays contained */
+        }
+    </style>
 </head>
 <body>
     <!-- Menu Button -->
@@ -27,9 +87,9 @@
             <img src="{{ url_for('static', filename='assets/media/Zectic_Cresties_Logo.png') }}" alt="Zectic Cresties Logo">
         </div>
         <ul>
-            <li><a href="{{ url_for('home') }}" style="font-size: 0.9em;"><i class="fas fa-home"></i> Home</a></li>
-            <li><a href="{{ url_for('about') }}" style="font-size: 0.9em;"><i class="fas fa-info-circle"></i> About Us</a></li>
-            <li><a href="{{ url_for('contact_us') }}" style="font-size: 0.9em;"><i class="fas fa-envelope"></i> Contact Us</a></li>
+            <li><a href="{{ url_for('home') }}"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="{{ url_for('about') }}"><i class="fas fa-info-circle"></i> About Us</a></li>
+            <li><a href="{{ url_for('contact_us') }}"><i class="fas fa-envelope"></i> Contact Us</a></li>
         </ul>
     </nav>
 
@@ -52,5 +112,24 @@
     
     <!-- Link to Custom JavaScript -->
     <script src="{{ url_for('static', filename='script.js') }}"></script>
+    
+    <!-- Script to mark the current page as active in the menu -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get current page URL
+            var currentLocation = window.location.pathname;
+            
+            // Find all menu links
+            var menuLinks = document.querySelectorAll('#sidebar ul li a');
+            
+            // Check each link
+            menuLinks.forEach(function(link) {
+                // If the link's href matches the current URL, add the active class
+                if (link.getAttribute('href') === currentLocation) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
